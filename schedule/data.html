@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+    </div>
+    <script>
+    
+    function randomBKS() {
+        arr = [
+            "29B-405.78", "30E-204.46", "30F-131.87", "30E-826.79", "30A-220.62", "30F-150.69", "30F-009.33", "30A-410.68", "30E-719.51", "30E-079.01"
+        ]
+        return arr[Math.floor(Math.random() * arr.length)]
+    }
+    
+    function randomHo() {
+        arr = ['Nguyễn', 'Hoàng', 'Vũ', 'Lê', 'Trần', 'Đào', 'Đàm', 'Phạm', 'Tạ', 
+            'Vương', 'Bá', 'Nguyễn', 'Trần',	'Lê', 'Phạm',	'Hoàng', 'Huỳnh', 
+            'Phan', 'Vũ', 'Võ', 'Đặng','Bùi','Đỗ', 'Hồ', 'Ngô', 'Dương', 'Lý']
+        return arr[Math.floor(Math.random() * arr.length)]
+    }
+            
+    function randomTenDem(gioiTinh) {
+        if(gioiTinh == 0)
+            arr = ['Văn', 'Thành', 'Đức', 'Anh', 'Quốc', 'Tiến', 'Hải', 'Minh', 'Việt', 'Toàn']
+        else if (gioiTinh == 1)
+            arr = ['Thị', 'Phương', 'Huyền', 'Anh', 'Hồng', 'Thu', 'Ngọc', 'Quỳnh', 'Mỹ', 'Thùy']
+        return arr[Math.floor(Math.random() * arr.length)]
+    }
+         
+    function randomTen(gioiTinh) {
+        if (gioiTinh == 0)     
+            arr = ['Hoàng', 'Phong', 'Long', 'Hải', 'Trung', 'Duy', 'Tuấn', 'Anh', 
+                'Đức', 'Phú', 'Quyết', 'Việt', 'Mạnh', 'Hải', 'Tuệ', 'Sáng', 
+                'Nam', 'Minh', 'Sỹ', 'Toàn']
+        else
+            arr = ['Lan', 'Nguyệt', 'My', 'Hà', 'Hương', 'Thúy', 'Thùy', 'Anh',
+                'Trâm', 'Cúc', 'Thủy', 'Dương', 'Liễu', 'Hiền', 'Nga', 'Lụa',
+                'Ngọc', 'Hường', 'Huế', 'Oanh', 'Ly']
+        return arr[Math.floor(Math.random() * arr.length)]
+    }
+        
+    function createName() {
+        gioiTinh = Math.random() > 0.5 ? 1 : 0
+        return randomHo() + " " + randomTenDem(gioiTinh) + " " + randomTen(gioiTinh)
+    }
+
+    function randomPhoneNumber() {
+        return '09' + (Math.floor(Math.random() * 9) + 2) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9)
+    }
+    
+    function randomBirthday() {
+        namSinh = "" + Math.floor(Math.random() * 1995) + 1980
+        thangSinh = "" + Math.floor(Math.random() * 12) + 1
+        if (thangSinh.length == 1)
+            thangSinh = '0' + thangSinh
+        ngaySinh = "" + Math.floor(Math.random() * 28) + 1
+        if (ngaySinh.length == 1)
+            ngaySinh = '0' + ngaySinh
+        return ngaySinh + '-' + thangSinh + '-' + namSinh
+    }
+    
+    addresses = [
+        "135 Cầu Giấy, Quan Hoa, Cầu Giấy, Hà Nội", 
+        "273 Trần Cung, Cổ Nhuế, Bắc Từ Liêm, Hà Nội", 
+        "136 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội", 
+        "6 Trần Quốc Hoàn Hà Nội",
+        "89 Lê Đức Thọ, Mỹ Đình, Từ Liêm, Hà Nội",
+        "106 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội",
+        "75 Lê Đức Thọ, Mỹ Đình, Từ Liêm, Hà Nội",
+        "21 Hàm Nghi, Cầu Diễn, Từ Liêm, Hà Nội",
+        "Ngõ 80 Xuân Phương, Xuân Phương, Từ Liêm, Hà Nội",
+        "73 Tây Mỗ, Xuân Phương, Từ Liêm, Hà Nội",
+        "Golden palace, 99 Mễ Trì Hạ, Mễ Trì, Nam Từ Liêm, Hà Nội",
+        "95 Lê Đức Thọ, Nam Từ Liêm, Hà Nội",
+        "Ngõ 2 Trần Vỹ, Mai Dịch, Cầu Giấy, Hà Nội",
+        "30 Nguyễn Chánh, Khu đô thị Nam Trung Yên, Cầu Giấy, Hà Nội",
+        "3 Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "24 Mạc Thái Tông, Trung Hoà, Cầu Giấy, Hà Nội",
+        "2A Nguyễn Thị Thập, Trung Hoà, Cầu Giấy, Hà Nội",
+        "94 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội",
+        "122 Trần Bình, Mỹ Đình, Cầu Giấy, Hà Nội",
+        "101 Phố Nghĩa Tân, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "115 Tô Hiệu, Nghĩa Đô, Cầu Giấy, Hà Nội",
+        "14 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội",
+        "11 Nguyễn Khang, Trung Hoà, Cầu Giấy, Hà Nội",
+        "18 ngõ 879 La Thành, Láng Thượng, Đống Đa, Hà Nội",
+        "35 Phố Thọ Tháp, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "19 Nguyễn Khang, Trung Hoà, Cầu Giấy, Hà Nội",
+        "148C Ngọc Hà, Ngọc Hồ, Ba Đình, Hà Nội",
+        "85 Lê Duẩn, Văn Miếu, Hoàn Kiếm, Hà Nội",
+        "30 Tôn Thất Tùng, Khương Thượng, Đống Đa, Hà Nội",
+        "377 Phố Khương Trung, Khương Đình, Thanh Xuân, Hà Nội",
+        "65 Đại Mỗ, Đai Mễ, Từ Liêm, Hà Nội",
+        "108 Trương Công Định, Yết Kiêu, Hà Đông, Hà Nội",
+        "Khu E6 Đô thị mới Cầu Giấy, Phạm Hùng, Mễ Trì, Nam Từ Liêm, Hà Nội",
+        "107 Cổ Nhuế, Từ Liêm, Hà Nội",
+        "26 Tân Xuân, Xuân Đỉnh, Từ Liêm, Hà Nội",
+        "66 Thụy Phương, Thụy Phương, Bắc Từ Liêm, Hà Nội",
+        "3 Ngõ 104A, Thụy Phương, Bắc Từ Liêm, Hà Nội",
+        "123 Thụy Phương, Thuỵ Phương, Từ Liêm, Hà Nội",
+        "351 Đường Thụy Phương, Thuỵ Phương, Từ Liêm, Hà Nội",
+        "174 Hoàng Quốc Việt, Cầu Giấy, Hà Nội",
+        "65 Trần Cung, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "512 Trần Cung, Cổ Nhuế, Bắc Từ Liêm, Hà Nội",
+        "105 Trần Cung, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "78 Ngõ 82 Phố Nghĩa Tân, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "131 Hoàng Quốc Việt, Khu tập thể Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "279 Trần Đăng Ninh, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "302 Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "67 Cốm Vòng, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "7 Tôn Thất Thuyết, Mỹ Đình, Cầu Giấy, Hà Nội",
+        "8 Cổ Nhuế Hà Nội",
+        "194 Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "17 Phố Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "734 Đường Láng, Láng Thượng, Đống Đa, Hà Nội",
+        "861 Đường La Thành, Láng Thượng, Đống Đa, Hà Nội",
+        "70 Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội",
+        "43 Đỗ Quang, Trung Hòa Nhân Chính, Thanh Xuân, Hà Nội",
+        "68 Mạc Thái Tông, Trung Hoà, Cầu Giấy, Hà Nội",
+        "số 2 Hàm Nghi, Cầu Diễn, Nam Từ Liêm, Hà Nội",
+        "28 Trần Hữu Dực Mỹ Đình 1, Nam Từ Liêm, Hà Nội",
+        "30 Phố Trần Hữu Dực, Cầu Diễn, Từ Liêm, Hà Nội",
+        "12 Dương Khuê, Mỹ Đình, Nam Từ Liêm, Hà Nội",
+        "68 Dương Khuê, Mỹ Đình, Nam Từ Liêm, Hà Nội",
+        "6 Ngõ 76 Mai Dịch, Mai Dịch, Cầu Giấy, Hà Nội",
+        "36 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "9 Trần Vỹ, Mai Dịch, Cầu Giấy, Hà Nội",
+        "160 Phố Mai Dịch, Mai Dịch, Cầu Giấy, Hà Nội",
+        "136 Hồ Tùng Mậu, Goldmark City, Nam Từ Liêm, Hà Nội",
+        "Số 30 Đường Lê Đức Thọ, Mỹ Đình, Nam Từ Liêm, Hà Nội",
+        "235 Đường Lê Đức Thọ, Mỹ Đình, Từ Liêm, Hà Nội",
+        "243 Hoàng Quốc Việt, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "334 Phạm Văn Đồng, Cổ Nhuế, Từ Liêm, Hà Nội",
+        "236 Phạm Văn Đồng, Cổ Nhuế, Bắc Từ Liêm, Hà Nội",
+        "Ngách 207/122, Xuân Đỉnh, Từ Liêm, Hà Nội",
+        "Số 18 Phố Viên, Đức Thắng, Bắc Từ Liêm, Hà Nội",
+        "146 Cổ Nhuế, Đông Ngạc, Từ Liêm, Hà Nội",
+        "Số 4 Phố Viên, Đức Thắng, Bắc Từ Liêm, Hà Nội",
+        "15 Đông Quan, Quan Hoa, Cầu Giấy, Hà Nội",
+        "62 Nguyễn Văn Huyên, Nghĩa Đô, Cầu Giấy, Hà Nội",
+        "68 Trần Đăng Ninh, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "68 Dương Quảng Hàm, Quan Hoa, Cầu Giấy, Hà Nội",
+        "1180 Láng, Yên Hoà, Đống Đa, Hà Nội",
+        "Hà Đô Park View, 10 Phố Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "233 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "19 Trần Quốc Hoàn, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "48 Liễu Giai, Cống Vị, Ba Đình, Hà Nội",
+        "9A Đào Tấn, Ngọc Khánh, Ba Đình, Hà Nội",
+        "16 Ngõ 59 Láng Hạ, Chợ Dừa, Đống Đa, Hà Nội",
+        "91 Nguyễn Chí Thanh, Thành Công, Đống Đa, Hà Nội",
+        "85 Thái Hà, Trung Liệt, Đống Đa, Hà Nội",
+        "101 Trần Huy Liệu, Giảng Võ, Ba Đình, Hà Nội",
+        "22 Liễu Giai, Ba Đình, Hà Nội",
+        "275 Tô Hiệu, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "17 Nguyễn Khánh Toàn, Quan Hoa, Cầu Giấy, Hà Nội",
+        "20 Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội",
+        "100 Dịch Vọng Hậu, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+        "67 Vũ Phạm Hàm, Yên Hoà, Cầu Giấy, Hà Nội",
+        "6 Ngõ 232 Yên Hòa, Yên Hoà, Cầu Giấy, Hà Nội",
+        "226 Đường Bưởi, Ngọc Khánh, Ba Đình, Hà Nội",
+        "A28 Phố Nghĩa Tân, Nghĩa Tân, Cầu Giấy, Hà Nội",
+        "16 Nguyễn Khánh Toàn, Quan Hoa, Cầu Giấy, Hà Nội"
+    ]
+    var products = [
+        ["Máy Sấy Tóc Hairdryver", 0.6, 870],
+        ["Thẻ Nhớ Micro SDHC OEM", 0, 690],
+        ["Tai Nghe Chụp Tai Audio Technica ATH-M50x", 0.4, 219],
+        ["Bộ đồ chơi rút gỗ WISS TOY", 0.2, 75],
+        ["Đồ Chơi Xếp Hình Thông Minh Bằng Gỗ", 0.3, 45],
+        ["Nồi chiên không dầu Philips HD9252/90", 3, 2589.9],
+        ["Nồi Chiên Chân Không Điện Tử Ranee RN-AF10LH", 3.5, 1875],
+        ["Nồi Chiên Không Dầu Điện Tử BlueStone AFB-5869", 3.2, 1399],
+        ["Điện Thoại Vsmart Live 4 6GB/64GB", 0.2, 3700],
+        ["Điện Thoại Samsung Galaxy M21 (64GB/4GB)", 0.2, 3690],
+        ["Điện Thoại Samsung A12 4GB/128GB", 0.2, 3579],
+        ["Máy tính bảng Huawei MatePad Pro (6GB/128GB)", 0.5, 16990],
+        ["Dép Xốp Xỏ Ngón Công Sở Nữ Julia 3249VN0", 0.1, 48],
+        ["Giày Cao Gót Nữ Chocolate 3223VN5", 0.2, 275],
+        ["Film Fuji Superia Xtra 400", 0.4, 180],
+        ["Film máy ảnh Fuji c200", 0.35, 185],
+        ["Quần jogger nữ lưng thun Old School", 0.2, 299],
+        ["Giày sneaker nam thắt dây TIDAO 51982-WNVR", 0.4, 890]
+    ]
+    results = []
+    /*for (var i = 0; i < addresses.length; i++) {
+        var address = addresses[i];
+        let j = i;
+        try{
+            fetch("https://apis.wemap.asia/geocode-1/search?text="+address+"&location.lat=20.684521&location.lon=105.670195&size=10&key=GqfwrZUEfxbwbnQUhtBMFivEysYIxelQ")
+            .then(response => response.json()).then(data => {
+                try {
+                    //console.log(data)
+                    coordinate = data.features[0].geometry.coordinates
+                    product = products[Math.floor(Math.random() * products.length)]
+                    document.getElementById("content").innerHTML += JSON.stringify({
+                        "order_name": product[0],
+                        "weight": product[1], 
+                        "price": product[2],
+                        "days_in_warehouse": Math.floor(Math.random() * 100) > 80 ? 1 : 0,
+                        "status": "in_warehouse",
+                        "is_paid": Math.floor(Math.random() * 100) > 80 ? false : true,
+                        "customer_name": createName(),
+                        "custome_phone": randomPhoneNumber(),
+                        "priority": Math.floor(Math.random() * 2) + 1,
+                        "customer_address": addresses[j],
+                        "longitude": coordinate[0],
+                        "latitude": coordinate[1]
+                    }) + "," + "<br>"
+                } catch {
+                    console.log(addresses[j])
+                }                
+            })
+        } catch {
+            console.log(address)
+        }
+        
+        document.getElementById("content").innerHTML = JSON.stringify(results)
+    }*/
+    
+
+
+    /*for (var i = 0; i < 30; i++) {
+        document.getElementById("content").innerHTML += JSON.stringify({
+            "name": createName(),
+            "phone_number": randomPhoneNumber(),
+            "password": "123456",
+            "birthday": randomBirthday(),
+            "address": addresses[Math.floor(Math.random() * addresses.length)],
+            "balance": 5000,
+            "license_plates": randomBKS()
+        }) + "," + "<br>"
+    }*/
+
+    /*fetch("http://localhost:5000/all/11")
+    .then(res => res.json())
+    .then(data => {
+        //console.log(data)
+        for (var i = 0; i < data.length; i++) {
+            let node = data[i]
+            for (var j = 0; j < node.relations.length; j++) {
+                let reNode = node.relations[j]
+                fetch('https://apis.wemap.asia/route-api/route?point=' + node.latitude + '%2C' + node.longitude + '&point=' + reNode.latitude + '%2C' + reNode.longitude + '&type=json&locale=en-US&vehicle=car&weighting=fastest&elevation=false&key=GqfwrZUEfxbwbnQUhtBMFivEysYIxelQ')
+                .then(res => res.json())
+                .then(data => {
+                    data = data.paths[0]
+                    if (data.distance == 0 || data.time == 0) {
+                        
+                        if (node.id != reNode.id) {
+                            console.log("-----" + node.id + " " + reNode.id + " " + data.distance/1000 + " " + data.time)
+                        } else {
+                            console.log(node.id + " " + reNode.id + " " + data.distance/1000 + " " + data.time)
+                        }
+                    } else {
+                        document.getElementById("content").innerHTML += JSON.stringify({
+                            "id": node.id,
+                            "relation": {
+                                "id": reNode.id,
+                                "distance": data.distance/1000,
+                                "time": data.time/30000
+                            }
+                        }) + "," + "<br>"
+                    }
+                })
+            }
+        }
+    })*/
+
+    // (105.782708, 21.038238)
+    fetch("http://localhost:5000/105.782708/21.038238")
+    .then(res => res.json())
+    .then(data => {
+        
+    })
+
+    </script>
+</body>
+
+</html>

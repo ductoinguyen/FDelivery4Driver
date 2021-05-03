@@ -1,0 +1,331 @@
+[{
+  "_id": {
+    "$oid": "608702589095043c34133219"
+  },
+  "name": "Lê Thị Lụa",
+  "phone_number": "0985661553",
+  "password": "123456",
+  "birthday": "61-41-15741980",
+  "address": "115 Tô Hiệu, Nghĩa Đô, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-131.87"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321a"
+  },
+  "name": "Lý Đức Toàn",
+  "phone_number": "09108028136",
+  "password": "123456",
+  "birthday": "251-91-10071980",
+  "address": "68 Mạc Thái Tông, Trung Hoà, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-204.46"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321b"
+  },
+  "name": "Bá Thành Đức",
+  "phone_number": "0940121880",
+  "password": "123456",
+  "birthday": "111-91-1061980",
+  "address": "100 Phố Dịch Vọng Hậu, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-131.87"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321c"
+  },
+  "name": "Dương Việt Trung",
+  "phone_number": "0993687760",
+  "password": "123456",
+  "birthday": "261-71-16141980",
+  "address": "236 Phạm Văn Đồng, Cổ Nhuế, Bắc Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-150.69"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321d"
+  },
+  "name": "Trần Anh Ly",
+  "phone_number": "0927101475",
+  "password": "123456",
+  "birthday": "101-01-11821980",
+  "address": "Số 28 đường Trần Hữu Dực, KĐT Mỹ Đình 1, Nam Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-131.87"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321e"
+  },
+  "name": "Lê Hồng Lụa",
+  "phone_number": "0965453365",
+  "password": "123456",
+  "birthday": "11-31-18031980",
+  "address": "17 Phố Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413321f"
+  },
+  "name": "Huỳnh Quốc Phong",
+  "phone_number": "0951614031",
+  "password": "123456",
+  "birthday": "211-71-5051980",
+  "address": "8 Trần Đăng Ninh, Dịch Vọng, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-009.33"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133220"
+  },
+  "name": "Vũ Anh Minh",
+  "phone_number": "0955316533",
+  "password": "123456",
+  "birthday": "111-51-521980",
+  "address": "11 Nguyễn Khang, Trung Hoà, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-079.01"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133221"
+  },
+  "name": "Hoàng Minh Hoàng",
+  "phone_number": "0982016650",
+  "password": "123456",
+  "birthday": "51-11-5071980",
+  "address": "67 Vũ Phạm Hàm, Yên Hoà, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-826.79"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133222"
+  },
+  "name": "Lê Minh Phong",
+  "phone_number": "0955136542",
+  "password": "123456",
+  "birthday": "11-01-17671980",
+  "address": "36 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-131.87"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133223"
+  },
+  "name": "Dương Hải Duy",
+  "phone_number": "0955672801",
+  "password": "123456",
+  "birthday": "251-51-18451980",
+  "address": "Tòa Nhà Hòa Bình, Ng. 106 - Hoàng Quốc Việt, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133224"
+  },
+  "name": "Đàm Anh Oanh",
+  "phone_number": "0947014081",
+  "password": "123456",
+  "birthday": "31-31-2681980",
+  "address": "26 Tân Xuân, Xuân Đỉnh, Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-009.33"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133225"
+  },
+  "name": "Vũ Anh Sáng",
+  "phone_number": "0987580241",
+  "password": "123456",
+  "birthday": "161-111-6691980",
+  "address": "95 Lê Đức Thọ, Nam Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133226"
+  },
+  "name": "Tạ Đức Tuệ",
+  "phone_number": "09104168053",
+  "password": "123456",
+  "birthday": "221-81-16651980",
+  "address": "Ngõ 80 Xuân Phương, Xuân Phương, Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-150.69"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133227"
+  },
+  "name": "Phạm Hải Việt",
+  "phone_number": "0941757023",
+  "password": "123456",
+  "birthday": "01-71-6891980",
+  "address": "351 Đường Thụy Phương, Thuỵ Phương, Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30A-220.62"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133228"
+  },
+  "name": "Vũ Quốc Phong",
+  "phone_number": "0995518750",
+  "password": "123456",
+  "birthday": "181-101-14741980",
+  "address": "236 Phạm Văn Đồng, Cổ Nhuế, Bắc Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-150.69"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133229"
+  },
+  "name": "Lê Anh Lụa",
+  "phone_number": "0948273021",
+  "password": "123456",
+  "birthday": "51-01-5361980",
+  "address": "2A Nguyễn Thị Thập, Trung Hoà, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "29B-405.78"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322a"
+  },
+  "name": "Bùi Toàn Hoàng",
+  "phone_number": "0966542063",
+  "password": "123456",
+  "birthday": "61-101-6961980",
+  "address": "107 Cổ Nhuế, Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-131.87"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322b"
+  },
+  "name": "Đỗ Anh Hiền",
+  "phone_number": "0957502444",
+  "password": "123456",
+  "birthday": "21-51-10391980",
+  "address": "Hà Đô Park View, 10 Phố Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322c"
+  },
+  "name": "Lê Hồng Hà",
+  "phone_number": "0995273706",
+  "password": "123456",
+  "birthday": "91-81-9771980",
+  "address": "30 Tôn Thất Tùng, Khương Thượng, Đống Đa, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-204.46"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322d"
+  },
+  "name": "Phạm Văn Nam",
+  "phone_number": "0953011677",
+  "password": "123456",
+  "birthday": "271-51-3811980",
+  "address": "Golden palace, 99 Mễ Trì Hạ, Mễ Trì, Nam Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-204.46"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322e"
+  },
+  "name": "Bùi Anh Hải",
+  "phone_number": "0981182664",
+  "password": "123456",
+  "birthday": "161-11-6671980",
+  "address": "148C Ngọc Hà, Ngọc Hồ, Ba Đình, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-826.79"
+},{
+  "_id": {
+    "$oid": "608702589095043c3413322f"
+  },
+  "name": "Đào Anh Hà",
+  "phone_number": "0951620183",
+  "password": "123456",
+  "birthday": "201-61-19461980",
+  "address": "Ngõ 2 Trần Vỹ, Mai Dịch, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-826.79"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133230"
+  },
+  "name": "Vũ Mỹ Hường",
+  "phone_number": "0963256337",
+  "password": "123456",
+  "birthday": "81-101-13451980",
+  "address": "65 Đại Mỗ, Đai Mễ, Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "29B-405.78"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133231"
+  },
+  "name": "Đào Quốc Việt",
+  "phone_number": "0960057226",
+  "password": "123456",
+  "birthday": "151-31-871980",
+  "address": "108 Trương Công Định, Yết Kiêu, Hà Đông, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-204.46"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133232"
+  },
+  "name": "Phạm Huyền Hường",
+  "phone_number": "0951066381",
+  "password": "123456",
+  "birthday": "91-31-7631980",
+  "address": "377 Phố Khương Trung, Khương Đình, Thanh Xuân, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133233"
+  },
+  "name": "Hồ Phương Liễu",
+  "phone_number": "0964510467",
+  "password": "123456",
+  "birthday": "231-101-13761980",
+  "address": "94 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30E-719.51"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133234"
+  },
+  "name": "Vương Anh Thúy",
+  "phone_number": "0965155085",
+  "password": "123456",
+  "birthday": "241-21-221980",
+  "address": "1180 Láng, Yên Hoà, Đống Đa, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30F-150.69"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133235"
+  },
+  "name": "Lê Quốc Long",
+  "phone_number": "0995845807",
+  "password": "123456",
+  "birthday": "231-101-12111980",
+  "address": "273 Trần Cung, Cổ Nhuế, Bắc Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30A-220.62"
+},{
+  "_id": {
+    "$oid": "608702589095043c34133236"
+  },
+  "name": "Bá Hồng Hiền",
+  "phone_number": "0935232027",
+  "password": "123456",
+  "birthday": "161-91-9061980",
+  "address": "136 Hồ Tùng Mậu, Goldmark City, Nam Từ Liêm, Hà Nội",
+  "balance": 5000,
+  "license_plates": "30A-410.68"
+}]
