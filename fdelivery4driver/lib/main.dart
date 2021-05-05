@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'schedule.dart';
+import 'login.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,8 +31,8 @@ class _AppState extends State<App> {
 
   final List<Widget> tabs = <Widget>[
     Home(),
-    Center(child: Text("List")),
-    Center(child: Text("Map")),
+    Schedule(),
+    Login(),
     Center(child: Text("Account"))
   ];
 
