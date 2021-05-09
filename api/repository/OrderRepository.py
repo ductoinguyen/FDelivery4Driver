@@ -1,7 +1,7 @@
 class OrderRepository:
     def registryTransport(self, db, day, ordersList, driverId):
         db.order.update_many({"_id": {"$in": ordersList}}, {
-            "$set": {"date": day, "driverId": driverId}
+            "$set": {"date": day, "driverId": driverId, "status": "transferring"}
         })
         
     def getOrdersList(self, db, day, driverId):
