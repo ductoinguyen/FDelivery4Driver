@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'map.dart';
 
 class Order {
-  const Order({
+   Order({
     @required this.id,
     @required this.order_name,
     @required this.weight,
@@ -31,25 +32,25 @@ class Order {
         assert(longitude != null),
         assert(latitude != null);
 
-  final String id;
-  final String order_name;
-  final double weight;
-  final double price;
-  final int days_in_warehouse;
-  final String status;
-  final bool is_paid;
-  final String customer_name;
-  final String customer_phone;
-  final int priority;
-  final String customer_addresss;
-  final double longitude;
-  final double latitude;
+   String id;
+   String order_name;
+   double weight;
+   double price;
+   int days_in_warehouse;
+   String status;
+   bool is_paid;
+   String customer_name;
+   String customer_phone;
+   int priority;
+   String customer_addresss;
+   double longitude;
+   double latitude;
 }
 const NoneColor = Color(0xFFEFECF3);
-const NhanDonColor = Color(0xFFE22F4A);
-const LuuKhoColor = Color(0xFF24C2B5);
+const NhanDonColor = Color(0xFFCD8C7D);
+const LuuKhoColor = Color(0xFF89ABD5);
 
-List<Order> orders(BuildContext context) => [
+List<Order> orders =  [
   Order(
       id : '1',
       order_name: 'Giày nike',
@@ -107,22 +108,6 @@ class Schedule extends StatefulWidget {
 
 class _CardsDemoState extends State<Schedule> with RestorationMixin {
   final RestorableBool _isSelected = RestorableBool(false);
-  // var status = new List() ;
-  // for (final order in orders(context)){
-  //   sta
-  // }
-  // var status = new List(6);
-  //
-  // void addStatus(status){
-  //   for(var i=0; i <status.length; i++){
-  //     status.add("none");
-  //   }
-  // }
-  //
-  // addStatus(status);
-
-  // List<String> status = ['none'];
-  String status = "none";
 
   @override
   String get restorationId => 'cards_demo';
@@ -167,7 +152,8 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
           restorationId: 'cards_demo_list_view',
           padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
           children: [
-            for (final order in orders(context))
+            // for (final order in orders(context))
+            for (var i =0;  i<orders.length; i++)
               Container(
                   margin: const EdgeInsets.only(bottom: 8),
                   child: SafeArea(
@@ -180,20 +166,19 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                           SizedBox(
                             height: height,
                             child: Card(
-                              color: status == 'nhan_don' ? NhanDonColor : status == 'luu_kho' ? LuuKhoColor : NoneColor ,
-
+                              color: orders[i].status == 'ship_success' ? NhanDonColor : orders[i].status == 'storage' ? LuuKhoColor : NoneColor ,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   SizedBox(height: 20),
                                   ListTile(
-                                    leading: order.is_paid ?
+                                    leading: orders[i].is_paid ?
                                         Image.asset(
-                                          "assets/logo-bg.png",
-                                          width: 30,
+                                          "assets/paid-bg.png",
+                                          width: 50,
                                         ) : Icon(Icons.arrow_right_sharp),
-                                    title: Text(order.order_name),
-                                    subtitle: Text(order.customer_addresss),
+                                    title: Text(orders[i].order_name),
+                                    subtitle: Text(orders[i].customer_addresss),
                                   ),
                                   SizedBox(height: 10),
                                   Column(
@@ -204,7 +189,7 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                           children: <Widget>[
                                             Text("    "),
                                             Icon(Icons.add_ic_call_outlined),
-                                            Text("  "+ this.convertPhoneNumber(order.customer_phone)),
+                                            Text("  "+ this.convertPhoneNumber(orders[i].customer_phone)),
                                           ]
                                       ),
                                       Row(
@@ -212,7 +197,7 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                           children: <Widget>[
                                             Text("    "),
                                             Icon(Icons.attach_money ),
-                                            Text("  "+ (order.price * 1000).toString() + " VNĐ") ,
+                                            Text("  "+ (orders[i].price * 1000).toString() + " VNĐ") ,
                                           ]
                                       ),
                                       Row(
@@ -223,7 +208,7 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                               "assets/ship.png",
                                               width: 30,
                                             ),
-                                            order.priority == 1 ?
+                                            orders[i].priority == 1 ?
                                             Text("Nhanh") :Text("Tiêu chuẩn")
                                           ]
                                       )
@@ -234,10 +219,13 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                     children: <Widget>[
                                       TextButton(
                                           onPressed: () {
-                                            setState(() {
-                                              status = 'nhan_don';
-                                            });
-
+                                            if(orders[i].status == 'ship_success' || orders[i].status == 'storage' ) {}
+                                            else {
+                                              setState(() {
+                                                orders[i].status =
+                                                'ship_success';
+                                              });
+                                            }
                                           },
                                           child:
                                           Text(
@@ -247,9 +235,13 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                       ),
                                       TextButton(
                                           onPressed: () {
-                                            setState(() {
-                                              status = 'luu_kho';
-                                            });
+                                            if(orders[i].status == 'ship_success' || orders[i].status == 'storage' ) {}
+                                            else {
+                                              setState(() {
+                                                orders[i].status =
+                                                'storage';
+                                              });
+                                            }
                                           },
                                           child:
                                           Text(
@@ -259,9 +251,23 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                       ),
                                       TextButton(
                                           onPressed: () {
-                                            setState(() {
-                                              status = 'none';
-                                            });
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => MapScreen(
+                                                    longitude: orders[i].longitude,
+                                                    latitude: orders[i].latitude
+                                                ),
+                                                // Pass the arguments as part of the RouteSettings. The
+                                                // DetailScreen reads the arguments from these settings.
+                                                // settings: RouteSettings(
+                                                //   arguments: {
+                                                //     'longitude': orders[i].longitude,
+                                                //     'latitude': orders[i].latitude
+                                                //   },
+                                                // ),
+                                              ),
+                                            );
                                           },
                                           child:
                                           Text(
@@ -290,30 +296,30 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                                           //   padding: const EdgeInsets.only(bottom: 8),
                                                           // ),
                                                           Text(
-                                                            order.order_name,
+                                                            orders[i].order_name,
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
                                                           Text(
-                                                            'Cân nặng: ' + order.weight.toString(),
+                                                            'Cân nặng: ' + orders[i].weight.toString(),
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
                                                           Text(
-                                                            'Thời gian lưu kho: ' + order.days_in_warehouse.toString(),
+                                                            'Thời gian lưu kho: ' + orders[i].days_in_warehouse.toString(),
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
                                                           Text(
-                                                            'Khách hàng: ' + order.customer_name,
+                                                            'Khách hàng: ' + orders[i].customer_name,
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
                                                           Text(
-                                                            'Số điện thoại: ' +order.customer_phone,
+                                                            'Số điện thoại: ' +orders[i].customer_phone,
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
                                                           Text(
-                                                            'Điểm đến: ' + order.customer_addresss,
+                                                            'Điểm đến: ' + orders[i].customer_addresss,
                                                             style: descriptionStyle.copyWith(color: Colors.black54),
                                                           ),
-                                                          if(order.priority == 1)
+                                                          if(orders[i].priority == 1)
                                                             Text(
                                                               'Giao hàng tiêu chuẩn',
                                                               style: descriptionStyle.copyWith(color: Colors.black54),

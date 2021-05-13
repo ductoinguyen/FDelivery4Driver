@@ -101,7 +101,7 @@ class OrderItem extends StatelessWidget {
         super(key: key);
 
   // This height will allow for all the Card's content to fit comfortably within the card.
-  static const height = 190.0;
+  static const height = 250.0;
   final Order order;
   // final ShapeBorder shape;
 
@@ -162,7 +162,12 @@ class OrderContent extends StatelessWidget {
         super(key: key);
 
   final Order order;
-
+  String convertPhoneNumber(String a){
+    String formattedPhoneNumber =  a.substring(0, 3)
+        + ' ' + a.substring(3, 6)
+        + ' ' + a.substring(6);
+    return formattedPhoneNumber;
+  }
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -179,148 +184,175 @@ class OrderContent extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: descriptionStyle,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // This array contains the three line description on each card
-                // demo.
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(height: 20),
+                ListTile(
+                  leading: order.is_paid ?
+                  Image.asset(
+                    "assets/logo-bg.png",
+                    width: 30,
+                  ) : Icon(Icons.arrow_right_sharp),
+                  title: Text(order.order_name),
+                  subtitle: Text(order.customer_addresss),
                 ),
-                Text(
-                  order.order_name,
-                  style: descriptionStyle.copyWith(color: Colors.redAccent),
+                SizedBox(height: 10),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text("    "),
+                            Icon(Icons.add_ic_call_outlined),
+                            Text("  "+ this.convertPhoneNumber(order.customer_phone)),
+                          ]
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text("    "),
+                            Icon(Icons.attach_money ),
+                            Text("  "+ (order.price * 1000).toString() + " VNĐ") ,
+                          ]
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text("    "),
+                            Image.asset(
+                              "assets/ship.png",
+                              width: 30,
+                            ),
+                            order.priority == 1 ?
+                            Text("Nhanh") :Text("Tiêu chuẩn")
+                          ]
+                      )
+                    ]
                 ),
-                Text(
-                  'Khách hàng: ' + order.customer_phone,
-                  style: descriptionStyle.copyWith(color: Colors.deepOrangeAccent),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextButton(
+                        onPressed: () {
+                          // setState(() {
+                          //   status = 'in_warehouse';
+                          // });
+
+                        },
+                        child:
+                        Text(
+                          "Nhận đơn",
+                          style: TextStyle(fontSize: 12),
+                        )
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          // setState(() {
+                          //   status = 'storage';
+                          // });
+                        },
+                        child:
+                        Text(
+                          "Lưu kho",
+                          style: TextStyle(fontSize: 12),
+                        )
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          // setState(() {
+                          //   status = 'none';
+                          // });
+                        },
+                        child:
+                        Text(
+                          "Bản đồ",
+                          style: TextStyle(fontSize: 12),
+                        )
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => AlertDialog(
+                              title: Text('Chi tiết đơn hàng'),
+                              content: SafeArea(
+                                  top: false,
+                                  bottom: false,
+                                  child:
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(16, 0, 10, 0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        // This array contains the three line description on each card
+                                        // demo.
+                                        // Padding(
+                                        //   padding: const EdgeInsets.only(bottom: 8),
+                                        // ),
+                                        Text(
+                                          order.order_name,
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        Text(
+                                          'Cân nặng: ' + order.weight.toString(),
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        Text(
+                                          'Thời gian lưu kho: ' + order.days_in_warehouse.toString(),
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        Text(
+                                          'Khách hàng: ' + order.customer_name,
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        Text(
+                                          'Số điện thoại: ' +order.customer_phone,
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        Text(
+                                          'Điểm đến: ' + order.customer_addresss,
+                                          style: descriptionStyle.copyWith(color: Colors.black54),
+                                        ),
+                                        if(order.priority == 1)
+                                          Text(
+                                            'Giao hàng tiêu chuẩn',
+                                            style: descriptionStyle.copyWith(color: Colors.black54),
+                                          )
+                                        else
+                                          Text(
+                                            'Giao hàng tiêu nhanh',
+                                            style: descriptionStyle.copyWith(color: Colors.black54),
+                                          )
+                                      ],
+                                    ),
+                                  )
+                              ),
+                              actions: [
+                                FlatButton(
+                                  textColor: Color(0xFF6200EE),
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text('OK'),
+                                )
+                              ],
+                            ),
+                            barrierDismissible: true,
+                          );
+                        },
+                        child:
+                        Text(
+                          "Chi tiết",
+                          style: TextStyle(fontSize: 12),
+                        )
+                    ),
+                  ],
                 ),
-                Text(
-                  'Giá: ' + (order.price * 1000).toString(),
-                  style: descriptionStyle.copyWith(color: Colors.brown),
-                ),
-                Text(
-                  'Điểm đến: Ngõ 80 Xuân Phương, Xuân Phương, Từ Liêm, Hà Nội' + order.customer_addresss,
-                  style: descriptionStyle.copyWith(color: Colors.black),
-                ),
-                if(order.is_paid)
-                  Text(
-                    'Đã thanh toán',
-                    style: descriptionStyle.copyWith(color: Colors.red),
-                  )
-                else
-                  Text(
-                  'Chưa thanh toán',
-                  style: descriptionStyle.copyWith(color: Colors.red),
-                  ),
               ],
             ),
           ),
         ),
         // share, explore buttons
-          ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              TextButton(
-                onPressed: () {},
-                child:
-                  Text(
-                    "Nhận đơn",
-                    style: TextStyle(fontSize: 12),
-                  )
-              ),
-              TextButton(
-                onPressed: () {},
-                  child:
-                  Text(
-                    "Lưu kho",
-                    style: TextStyle(fontSize: 12),
-                  )
-              ),
-              TextButton(
-                  onPressed: () {},
-                  child:
-                  Text(
-                    "Bản đồ",
-                    style: TextStyle(fontSize: 12),
-                  )
-              ),
-              TextButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (_) => AlertDialog(
-                        title: Text('Chi tiết đơn hàng'),
-                        content: SafeArea(
-                          top: false,
-                          bottom: false,
-                          child:
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(16, 0, 10, 0),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // This array contains the three line description on each card
-                                  // demo.
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(bottom: 8),
-                                  // ),
-                                  Text(
-                                    order.order_name,
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    'Cân nặng: ' + order.weight.toString(),
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    'Thời gian lưu kho: ' + order.days_in_warehouse.toString(),
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    'Khách hàng: ' + order.customer_name,
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    'Số điện thoại: ' +order.customer_phone,
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    'Điểm đến: ' + order.customer_addresss,
-                                    style: descriptionStyle.copyWith(color: Colors.black54),
-                                  ),
-                                  if(order.priority == 1)
-                                    Text(
-                                      'Giao hàng tiêu chuẩn',
-                                      style: descriptionStyle.copyWith(color: Colors.black54),
-                                    )
-                                  else
-                                    Text(
-                                      'Giao hàng tiêu nhanh',
-                                      style: descriptionStyle.copyWith(color: Colors.black54),
-                                    )
-                                ],
-                            ),
-                          )
-                        ),
-                        actions: [
-                          FlatButton(
-                            textColor: Color(0xFF6200EE),
-                            onPressed: () => Navigator.pop(context),
-                            child: Text('OK'),
-                          )
-                        ],
-                      ),
-                      barrierDismissible: true,
-                    );
-                  },
-                  child:
-                  Text(
-                    "Chi tiết",
-                    style: TextStyle(fontSize: 12),
-                  )
-              ),
-            ],
-          ),
+
       ],
     );
   }
