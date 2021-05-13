@@ -45,8 +45,12 @@ flutter:
   assets:
     - assets/logo(new).png
     - assets/logo(car).png
+    - assets/logo-bg.png
+    - assets/logo.jpg
     - assets/attribute(1).png
     - assets/banner.jpg
+    - assets/paid.png
+    - assets/ship.png
     - assets/crown.png
     - assets/kfc-ads.png
     - assets/icon-color/icon(1).png

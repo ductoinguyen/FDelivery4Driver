@@ -3,63 +3,107 @@ import 'package:flutter/material.dart';
 
 class Order {
   const Order({
-    @required this.assetName,
-    @required this.title,
-    @required this.description,
+    @required this.id,
+    @required this.order_name,
+    @required this.weight,
     @required this.price,
-    @required this.target,
-    @required this.status})
-      : assert(assetName != null),
-        assert(title != null),
-        assert(description != null),
+    @required this.days_in_warehouse,
+    @required this.status,
+    @required this.is_paid,
+    @required this.customer_name,
+    @required this.customer_phone,
+    @required this.priority,
+    @required this.customer_addresss,
+    @required this.longitude,
+    @required this.latitude})
+      : assert(id != null),
+        assert(order_name != null),
+        assert(weight != null),
         assert(price != null),
-        assert(target != null),
-        assert(status != null);
+        assert(days_in_warehouse != null),
+        assert(status != null),
+        assert(is_paid != null),
+        assert(customer_name != null),
+        assert(customer_phone != null),
+        assert(priority != null),
+        assert(customer_addresss != null),
+        assert(longitude != null),
+        assert(latitude != null);
 
-  final String assetName;
-  final String title;
-  final String description;
-  final String price;
-  final String target;
+  final String id;
+  final String order_name;
+  final double weight;
+  final double price;
+  final int days_in_warehouse;
   final String status;
+  final bool is_paid;
+  final String customer_name;
+  final String customer_phone;
+  final int priority;
+  final String customer_addresss;
+  final double longitude;
+  final double latitude;
 }
+
+const color = Color(0xFF6F35A5);
 
 List<Order> orders(BuildContext context) => [
   Order(
-    assetName: 'assets/kfc-ads.png',
-    title: 'Đơn hàng 1',
-    description: 'abcdef',
-    price: '10',
-    target: '144 Xuân Thủy',
-    status: 'chưa giao',
+    id : '1',
+    order_name: 'Giày nike',
+    weight: 0.4,
+    price: 890,
+    days_in_warehouse: 5,
+    status: 'in_warehosue',
+    is_paid: true,
+    customer_name: 'Nguyễn Vă A',
+    customer_phone: '0932382322',
+    priority: 2,
+    customer_addresss: '144 Xuân Thủy',
+    longitude: 105.78475,
+    latitude: 21.055945
   ),
   Order(
-    assetName: 'assets/kfc-ads.png',
-    title: 'Đơn hàng 1',
-    description: 'abcdef',
-    price: '10',
-    target: '144 Xuân Thủy',
-    status: 'chưa giao',
+      id : '1',
+      order_name: 'Giày nike',
+      weight: 0.4,
+      price: 890,
+      days_in_warehouse: 5,
+      status: 'in_warehosue',
+      is_paid: true,
+      customer_name: 'Nguyễn Vă A',
+      customer_phone: '0932382322',
+      priority: 2,
+      customer_addresss: '144 Xuân Thủy',
+      longitude: 105.78475,
+      latitude: 21.055945
   ),
   Order(
-    assetName: 'assets/kfc-ads.png',
-    title: 'Đơn hàng 1',
-    description: 'abcdef',
-    price: '10',
-    target: '144 Xuân Thủy',
-    status: 'chưa giao',
+      id : '1',
+      order_name: 'Giày nike',
+      weight: 0.4,
+      price: 890,
+      days_in_warehouse: 5,
+      status: 'in_warehosue',
+      is_paid: true,
+      customer_name: 'Nguyễn Vă A',
+      customer_phone: '0932382322',
+      priority: 1,
+      customer_addresss: '144 Xuân Thủy',
+      longitude: 105.78475,
+      latitude: 21.055945
   ),
 ];
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({Key key, @required this.order, this.shape})
+  const OrderItem({Key key, @required this.order})
       : assert(order != null),
         super(key: key);
 
   // This height will allow for all the Card's content to fit comfortably within the card.
-  static const height = 280.0;
+  static const height = 190.0;
   final Order order;
-  final ShapeBorder shape;
+  // final ShapeBorder shape;
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +111,17 @@ class OrderItem extends StatelessWidget {
       top: false,
       bottom: false,
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(7),
         child: Column(
           children: [
             SizedBox(
               height: height,
               child: Card(
+                color: Colors.transparent,
                 // This ensures that the Card's children are clipped correctly.
-                clipBehavior: Clip.antiAlias,
-                shape: shape,
+                // clipBehavior: Clip.antiAlias,
+                // shape: shape,
+
                 child: OrderContent(order: order),
               ),
             ),
@@ -106,6 +152,9 @@ class SectionTitle extends StatelessWidget {
     );
   }
 }
+// ["in_warehouse", "transferring", => trắng
+// "storage", luư kho =>
+// "ship_success"]
 
 class OrderContent extends StatelessWidget {
   const OrderContent({Key key, @required this.order})
@@ -123,42 +172,8 @@ class OrderContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 100,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                // In order to have the ink splash appear above the image, you
-                // must use Ink.image. This allows the image to be painted as
-                // part of the Material and display ink effects above it. Using
-                // a standard Image will obscure the ink splash.
-                child: Ink.image(
-                  image: AssetImage(
-                    order.assetName,
-                  ),
-                  fit: BoxFit.cover,
-                  child: Container(),
-                ),
-              ),
-              // Positioned(
-              //   bottom: 16,
-              //   left: 16,
-              //   right: 16,
-              //   child: FittedBox(
-              //     fit: BoxFit.scaleDown,
-              //     alignment: Alignment.centerLeft,
-              //     child: Text(
-              //       order.title,
-              //       style: titleStyle,
-              //     ),
-              //   ),
-              // ),
-            ],
-          ),
-        ),
-        // Description and share/explore buttons.
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 10, 0),
+          padding: const EdgeInsets.fromLTRB(16, 10, 10, 0),
           child: DefaultTextStyle(
             softWrap: false,
             overflow: TextOverflow.ellipsis,
@@ -170,25 +185,33 @@ class OrderContent extends StatelessWidget {
                 // demo.
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
-
                 ),
                 Text(
-                  order.title
-                  + '\nChi tiết: ' +order.description
-                  + '\nPrice: ' + order.price
-                  + '\nĐiểm đến: ' + order.target
-                  // style: descriptionStyle.copyWith(color: Colors.black54),
+                  order.order_name,
+                  style: descriptionStyle.copyWith(color: Colors.redAccent),
                 ),
-                // Text(
-                //   'Chi tiết: ' +order.description,
-                //   // style: descriptionStyle.copyWith(color: Colors.black54),
-                // ),
-                // Text(
-                //     'Price: ' + order.price
-                // ),
-                // Text(
-                //     'Điểm đến: ' + order.target
-                // ),
+                Text(
+                  'Khách hàng: ' + order.customer_phone,
+                  style: descriptionStyle.copyWith(color: Colors.deepOrangeAccent),
+                ),
+                Text(
+                  'Giá: ' + (order.price * 1000).toString(),
+                  style: descriptionStyle.copyWith(color: Colors.brown),
+                ),
+                Text(
+                  'Điểm đến: Ngõ 80 Xuân Phương, Xuân Phương, Từ Liêm, Hà Nội' + order.customer_addresss,
+                  style: descriptionStyle.copyWith(color: Colors.black),
+                ),
+                if(order.is_paid)
+                  Text(
+                    'Đã thanh toán',
+                    style: descriptionStyle.copyWith(color: Colors.red),
+                  )
+                else
+                  Text(
+                  'Chưa thanh toán',
+                  style: descriptionStyle.copyWith(color: Colors.red),
+                  ),
               ],
             ),
           ),
@@ -198,16 +221,7 @@ class OrderContent extends StatelessWidget {
             alignment: MainAxisAlignment.start,
             children: [
               TextButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text('Tính năng không hỗ trợ'),
-                      content: Text('Hệ thống đang bảo trì, vui lòng thử lại sau'),
-                    ),
-                    barrierDismissible: true,
-                  );
-                },
+                onPressed: () {},
                 child:
                   Text(
                     "Nhận đơn",
@@ -215,19 +229,18 @@ class OrderContent extends StatelessWidget {
                   )
               ),
               TextButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text('Tính năng không hỗ trợ'),
-                      content: Text('Hệ thống đang bảo trì, vui lòng thử lại sau'),
-                    ),
-                    barrierDismissible: true,
-                  );
-                },
+                onPressed: () {},
                   child:
                   Text(
                     "Lưu kho",
+                    style: TextStyle(fontSize: 12),
+                  )
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child:
+                  Text(
+                    "Bản đồ",
                     style: TextStyle(fontSize: 12),
                   )
               ),
@@ -236,15 +249,73 @@ class OrderContent extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (_) => AlertDialog(
-                        title: Text('Tính năng không hỗ trợ'),
-                        content: Text('Hệ thống đang bảo trì, vui lòng thử lại sau'),
+                        title: Text('Chi tiết đơn hàng'),
+                        content: SafeArea(
+                          top: false,
+                          bottom: false,
+                          child:
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 0, 10, 0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // This array contains the three line description on each card
+                                  // demo.
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(bottom: 8),
+                                  // ),
+                                  Text(
+                                    order.order_name,
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    'Cân nặng: ' + order.weight.toString(),
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    'Thời gian lưu kho: ' + order.days_in_warehouse.toString(),
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    'Khách hàng: ' + order.customer_name,
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    'Số điện thoại: ' +order.customer_phone,
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    'Điểm đến: ' + order.customer_addresss,
+                                    style: descriptionStyle.copyWith(color: Colors.black54),
+                                  ),
+                                  if(order.priority == 1)
+                                    Text(
+                                      'Giao hàng tiêu chuẩn',
+                                      style: descriptionStyle.copyWith(color: Colors.black54),
+                                    )
+                                  else
+                                    Text(
+                                      'Giao hàng tiêu nhanh',
+                                      style: descriptionStyle.copyWith(color: Colors.black54),
+                                    )
+                                ],
+                            ),
+                          )
+                        ),
+                        actions: [
+                          FlatButton(
+                            textColor: Color(0xFF6200EE),
+                            onPressed: () => Navigator.pop(context),
+                            child: Text('OK'),
+                          )
+                        ],
                       ),
                       barrierDismissible: true,
                     );
                   },
                   child:
                   Text(
-                    "Bản đồ",
+                    "Chi tiết",
                     style: TextStyle(fontSize: 12),
                   )
               ),
@@ -282,6 +353,7 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.orangeAccent,
       body: Scrollbar(
         child: ListView(
           restorationId: 'cards_demo_list_view',

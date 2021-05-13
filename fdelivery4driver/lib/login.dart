@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Login extends StatelessWidget {
   Login({Key key}) : super(key: key);
@@ -16,12 +16,13 @@ class Login extends StatelessWidget {
                 child: Stack(
                   children: [
                     Positioned.fill(
-                      child: Ink.image(
-                        image: AssetImage(
-                          'assets/logo(new).png',
-                        ),
-                        fit: BoxFit.cover,
-                        child: Container(),
+                      child:
+                        Ink.image(
+                          image: AssetImage(
+                            'assets/logo(new).png',
+                          ),
+                          fit: BoxFit.cover,
+                          child: Container(),
                       ),
                     ),
                   ],
@@ -32,8 +33,8 @@ class Login extends StatelessWidget {
                       shape: BoxShape.rectangle,
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)
+                          topLeft: Radius.circular(45),
+                          topRight: Radius.circular(45)
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -43,7 +44,7 @@ class Login extends StatelessWidget {
                         )
                       ]
                   ),
-                  margin: EdgeInsets.only(top: 120),
+                  margin: EdgeInsets.only(top: 110),
                   padding: EdgeInsets.all(15),
                   child:
                   Column(
@@ -51,13 +52,12 @@ class Login extends StatelessWidget {
                       Padding(
                           padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                           child: Text(
-                            "Login",
+                            "Đăng nhập",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
                                 color: Colors.orangeAccent
                             ),
-
                           )
                       ),
                      Padding(
@@ -65,10 +65,9 @@ class Login extends StatelessWidget {
                        child: TextField(
                          style: TextStyle(fontSize: 18, color: Colors.black),
                          decoration: InputDecoration(
-                           labelText: "PHONENUMBER",
+                           labelText: "Số điện thoại",
                            labelStyle:
                              TextStyle(color: Color(0xff888888), fontSize: 15),
-
                          ),
                        )
                      ),
@@ -81,14 +80,13 @@ class Login extends StatelessWidget {
                                 style: TextStyle(fontSize: 18, color: Colors.black),
                                 obscureText: true,
                                 decoration: InputDecoration(
-                                  labelText: "PASSWORD",
+                                  labelText: "Mật khẩu",
                                   labelStyle:
                                   TextStyle(color: Color(0xff888888), fontSize: 15),
-
                                 ),
                               ),
                               Text(
-                                'SHOW',
+                                'Hiện',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 13,
@@ -119,18 +117,17 @@ class Login extends StatelessWidget {
                                   );
                                 },
                                 child: Text(
-                                  'SIGN IN',
+                                  'Đăng nhập',
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.black
                                   )
                                 ),
                             ),
-
                           ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                        padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
                         child: Column(
                           children: <Widget>[
                             TextButton(
@@ -146,7 +143,7 @@ class Login extends StatelessWidget {
                                 },
                                 child:
                                 Text(
-                                  "NEW USER? SIGN UP",
+                                  "Bạn chưa có tài khoản",
                                   style: TextStyle(fontSize: 12),
                                 )
                             ),
@@ -163,7 +160,7 @@ class Login extends StatelessWidget {
                                 },
                                 child:
                                 Text(
-                                  "FORGET PASSWORD",
+                                  "Quên mật khẩu",
                                   style: TextStyle(fontSize: 12),
                                 )
                             ),
@@ -178,32 +175,20 @@ class Login extends StatelessWidget {
     );
   }
 }
-
-
-class CarouselDemo extends StatelessWidget {
-  CarouselController buttonCarouselController = CarouselController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        children: <Widget>[
-          CarouselSlider(
-            items:
-            <Widget>[
-              Image.asset('assets/logo(new).png'),
-              Image.asset('assets/attribute(1).png'),
-            ]
-            ,
-            carouselController: buttonCarouselController,
-            options: CarouselOptions(
-              aspectRatio: 508/283,
-              autoPlay: true,
-              enlargeCenterPage: false,
-              viewportFraction: 1.0,
-              initialPage: 0,
-            ),
-          ),
-        ]
-    );
-  }
-}
+//
+// class TextFieldContainer extends StatefulWidget{
+//   const TextFieldContainer({
+//     Key key,}) : super(key:key);
+//   @override
+//   Widget build(BuildContext context){
+//     Size size = MediaQuery.of(context).size;
+//     return Container(
+//       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+//       decoration: BoxDecoration(
+//         color: kPrimary
+//       ),
+//     )
+//
+//     }
+//   }
+// }
