@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class Account extends StatelessWidget {
   Account({Key key}) : super(key: key);
+  static const height = 50.0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -64,79 +65,72 @@ class Account extends StatelessWidget {
                 // SizedBox(height: size.height * 0.05),
                 SizedBox(height: size.height * 0.03),
                 SizedBox(
-                  height: 50,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: size.height * 0.01),
-                        Column(
-                          children: [
-                            Stack(
-                              alignment: AlignmentDirectional.centerEnd,
-                              children: <Widget>[
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text("  "),
-                                      Icon(Icons.widgets_rounded),
-                                      Text("  Ví voucher"),
-                                    ]
-                                ),
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Icon(Icons.arrow_forward_ios, size: 15.0),
-                                      Text("  "),
-                                    ]
-                                ),
-                              ]
-                            )
-                          ],
-                        )
-
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: size.height * 0.01),
-                        Column(
-                          children: [
-                            Stack(
-                                alignment: AlignmentDirectional.centerEnd,
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                  height: 2.05 * height,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 2 * height,
+                        child: Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: size.height * 0.01),
+                              Column(
+                                children: [
+                                  Stack(
+                                      alignment: AlignmentDirectional.centerEnd,
                                       children: <Widget>[
-                                        Text("  "),
-                                        Icon(Icons.work_rounded),
-                                        Text("  Thanh toán"),
+                                        Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text("  "),
+                                              Icon(Icons.widgets_rounded),
+                                              Text("  Ví voucher"),
+                                            ]
+                                        ),
+                                        Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              Icon(Icons.arrow_forward_ios, size: 15.0),
+                                              Text("  "),
+                                            ]
+                                        ),
                                       ]
                                   ),
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
+                                  SizedBox(height: size.height * 0.03),
+                                  Stack(
+                                      alignment: AlignmentDirectional.centerEnd,
                                       children: <Widget>[
-                                        Icon(Icons.arrow_forward_ios, size: 15.0),
-                                        Text("  "),
+                                        Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text("  "),
+                                              Icon(Icons.work_rounded),
+                                              Text("  Thanh toán"),
+                                            ]
+                                        ),
+                                        Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              Icon(Icons.arrow_forward_ios, size: 15.0),
+                                              Text("  "),
+                                            ]
+                                        ),
                                       ]
-                                  ),
-                                ]
-                            )
-                          ],
-                        )
+                                  )
+                                ],
+                              )
 
-                      ],
-                    ),
-                  ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ),
+
                 SizedBox(
-                  height: 50,
+                  height: height,
                   child: Card(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +166,7 @@ class Account extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: height,
                   child: Card(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,112 +202,89 @@ class Account extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
-                  child: Card(
+                    height: 3.05 * height,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: size.height * 0.01),
-                        Column(
-                          children: [
-                            Stack(
-                                alignment: AlignmentDirectional.centerEnd,
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text("  "),
-                                        Icon(Icons.announcement_rounded),
-                                        Text("  Chính sách quy định"),
-                                      ]
-                                  ),
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Icon(Icons.arrow_forward_ios, size: 15.0),
-                                        Text("  "),
-                                      ]
-                                  ),
-                                ]
-                            )
-                          ],
-                        )
+                        SizedBox(
+                          height: 3 * height,
+                          child: Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: size.height * 0.01),
+                                Column(
+                                  children: [
+                                    Stack(
+                                        alignment: AlignmentDirectional.centerEnd,
+                                        children: <Widget>[
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text("  "),
+                                                Icon(Icons.announcement_rounded),
+                                                Text("  Chính sách quy định"),
+                                              ]
+                                          ),
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: <Widget>[
+                                                Icon(Icons.arrow_forward_ios, size: 15.0),
+                                                Text("  "),
+                                              ]
+                                          ),
+                                        ]
+                                    ),
+                                    SizedBox(height: size.height * 0.03),
+                                    Stack(
+                                        alignment: AlignmentDirectional.centerEnd,
+                                        children: <Widget>[
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text("  "),
+                                                Icon(Icons.ac_unit_rounded),
+                                                Text("  Cài đặt"),
+                                              ]
+                                          ),
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: <Widget>[
+                                                Icon(Icons.arrow_forward_ios, size: 15.0),
+                                                Text("  "),
+                                              ]
+                                          ),
+                                        ]
+                                    ),
+                                    SizedBox(height: size.height * 0.03),
+                                    Stack(
+                                        alignment: AlignmentDirectional.centerEnd,
+                                        children: <Widget>[
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text("  "),
+                                                Icon(Icons.workspaces_filled),
+                                                Text("  Thông tin ứng dụng"),
+                                              ]
+                                          ),
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: <Widget>[
+                                                Icon(Icons.arrow_forward_ios, size: 15.0),
+                                                Text("  "),
+                                              ]
+                                          ),
+                                        ]
+                                    )
+                                  ],
+                                )
 
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: size.height * 0.01),
-                        Column(
-                          children: [
-                            Stack(
-                                alignment: AlignmentDirectional.centerEnd,
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text("  "),
-                                        Icon(Icons.ac_unit_rounded),
-                                        Text("  Cài đặt"),
-                                      ]
-                                  ),
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Icon(Icons.arrow_forward_ios, size: 15.0),
-                                        Text("  "),
-                                      ]
-                                  ),
-                                ]
-                            )
-                          ],
-                        )
-
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: size.height * 0.01),
-                        Column(
-                          children: [
-                            Stack(
-                                alignment: AlignmentDirectional.centerEnd,
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text("  "),
-                                        Icon(Icons.workspaces_filled),
-                                        Text("  Thông tin ứng dụng"),
-                                      ]
-                                  ),
-                                  Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Icon(Icons.arrow_forward_ios, size: 15.0),
-                                        Text("  "),
-                                      ]
-                                  ),
-                                ]
-                            )
-                          ],
-                        )
-
-                      ],
-                    ),
-                  ),
+                    )
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10),
