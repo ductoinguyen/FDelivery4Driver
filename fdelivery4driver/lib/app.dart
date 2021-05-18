@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'schedule2.dart';
 import 'login2.dart';
+import 'account.dart';
 
 
 class App extends StatefulWidget {
@@ -17,7 +18,7 @@ class _AppState extends State<App> {
     Home(),
     Schedule(),
     Login(),
-    Text('sđs')
+    Account()
   ];
 
   @override
