@@ -49,14 +49,12 @@ def login(phone_number, password):
     session["address"] = result["address"]
     session["balance"] = result["balance"]
     session["license_plates"] = result["license_plates"]
-    return app.response_class(json.dumps({"message":"success", "name": result["name"], "phone_number": result["phone_number"], "birthday": result["birthday"], "address": result["address"], "balance": result["balance"], "license_plates": result["license_plates"]}),mimetype='application/json')
+    return app.response_class(json.dumps({"message":"success", "id": str(result["_id"]), "name": result["name"], "phone_number": result["phone_number"], "birthday": result["birthday"], "address": result["address"], "balance": result["balance"], "license_plates": result["license_plates"]}),mimetype='application/json')
 
-@app.route("/info", methods=["GET"])
+@app.route("/info/<driverId>", methods=["GET"])
 @cross_origin()
-def getInfoDriver():
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "fail"}),mimetype='application/json')
-    return app.response_class(json.dumps({"message":"success", "name": session["name"], "phone_number": session["phone_number"], "birthday": session["birthday"], "address": session["address"], "balance": session["balance"], "license_plates": session["license_plates"]}),mimetype='application/json')
+def getInfoDriver(driverId):
+    return app.response_class(json.dumps( DriverService().login(db, ObjectId(driverId))),mimetype='application/json')
 
 @app.route("/logout", methods=["GET"])
 @cross_origin()
@@ -67,45 +65,26 @@ def logout():
 @app.route("/change-password", methods=["PUT"])
 @required_data
 @cross_origin()
-def changePassword(oldPassword, newPassword, reNewPassword):
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "fail", "detail": "Chưa đăng nhập"}),mimetype='application/json')
-    if oldPassword != session["password"]:
-        return app.response_class(json.dumps({"message": "fail", "detail": "Sai mật khẩu"}),mimetype='application/json')
+def changePassword(driverId, oldPassword, newPassword, reNewPassword):
     if oldPassword != newPassword:
         return app.response_class(json.dumps({"message": "fail", "detail": "Mật khẩu mới không khớp"}),mimetype='application/json')
     global db
-    return app.response_class(json.dumps(DriverService().changePassword(db, ObjectId(session["id"]), newPassword)),mimetype='application/json')
-
-
-@app.route("/check-password", methods=["POST"])
-@required_data
-@cross_origin()
-def checkPassword(password):
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "fail", "detail": "Chưa đăng nhập"}),mimetype='application/json')
-    if password != session["password"]:
-        return app.response_class(json.dumps({"message": "fail", "detail": "Sai mật khẩu"}),mimetype='application/json')
-    return app.response_class(json.dumps({"message": "success"}),mimetype='application/json')
+    return app.response_class(json.dumps(DriverService().changePassword(db, ObjectId(driverId), oldPassword, newPassword)),mimetype='application/json')
 
 # ---------------------------------------------------------------------
 # ---------------------------- API ORDER ------------------------------
 # ---------------------------------------------------------------------
-@app.route("/delivery/<day>", methods=["GET"])
+@app.route("/delivery/<day>/<driverId>", methods=["GET"])
 @cross_origin()
-def delivery(day):
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "Chưa đăng nhập"}),mimetype='application/json')
+def delivery(day, driverId):
     global db
-    return app.response_class(json.dumps(OrderService().registryTransport(db, ObjectId(session["id"]), day)),mimetype='application/json')
+    return app.response_class(json.dumps(OrderService().registryTransport(db, ObjectId(driverId), day)),mimetype='application/json')
 
-@app.route("/order/list/<day>", methods=["GET"])
+@app.route("/order/list/<day>/<driverId>", methods=["GET"])
 @cross_origin()
-def listOrders(day):
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "Chưa đăng nhập"}),mimetype='application/json')
+def listOrders(day, driverId):
     global db
-    return app.response_class(json.dumps(OrderService().getAllOrdersInDay(db, ObjectId(session["id"]), day)),mimetype='application/json')
+    return app.response_class(json.dumps(OrderService().getAllOrdersInDay(db, ObjectId(driverId), day)),mimetype='application/json')
 
 @app.route("/order/<orderId>", methods=["GET"])
 @cross_origin()
@@ -116,8 +95,6 @@ def detailOrder(orderId):
 @app.route("/order/<orderId>/<status>", methods=["PUT"])
 @cross_origin()
 def changeStatusOrder(orderId, status):
-    if 'id' not in session:
-        return app.response_class(json.dumps({"message": "Chưa đăng nhập"}),mimetype='application/json')
     return app.response_class(json.dumps(OrderService().changeStatusOrder(db, ObjectId(orderId), status)),mimetype='application/json')
 
 # run
