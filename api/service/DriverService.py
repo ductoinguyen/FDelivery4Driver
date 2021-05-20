@@ -9,7 +9,7 @@ class DriverService:
         return self.driver.getAccount(db, phone_number, password)
     
     def changePassword(self, db, driverId, oldPassword, newPassword):
-        self.driver.changePassword(db, driverId, newPassword)
+        self.driver.changePassword(db, driverId, oldPassword, newPassword)
         return {"message": "success"}
     
     def getAccount(self, db, driverId):
