@@ -66,7 +66,7 @@ def logout():
 @required_data
 @cross_origin()
 def changePassword(driverId, oldPassword, newPassword, reNewPassword):
-    if oldPassword != newPassword:
+    if reNewPassword != newPassword:
         return app.response_class(json.dumps({"message": "fail", "detail": "Mật khẩu mới không khớp"}),mimetype='application/json')
     global db
     return app.response_class(json.dumps(DriverService().changePassword(db, ObjectId(driverId), oldPassword, newPassword)),mimetype='application/json')
