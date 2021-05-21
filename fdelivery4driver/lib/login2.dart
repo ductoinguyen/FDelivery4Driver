@@ -98,7 +98,7 @@ class _Login extends State<Login> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return App();
+                                return App(possition: 1);
                               },
                             ),
                           );

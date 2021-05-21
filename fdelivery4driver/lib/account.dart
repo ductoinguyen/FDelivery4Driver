@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'account_info.dart';
+import 'app.dart';
+
 class Account extends StatelessWidget {
   Account({Key key}) : super(key: key);
   static const height = 50.0;
@@ -19,114 +22,134 @@ class Account extends StatelessWidget {
 
             ListView(
               restorationId: 'cards_demo_list_view',
-              padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+              padding: const EdgeInsets.only(top: 8),
               children: [
                 ListTile(
                   title: Text("Xin chào Nguyễn VĂn A"),
-                  trailing: PopupMenuButton<String>(
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context) => <PopupMenuItem<String>>[
-                      PopupMenuItem<String>(
-                        value: 'abc',
-                        child: Text(
-                          'Chỉnh sửa thông tin',
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        child: Text(
-                          'Đổi mật khẩu',
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value:
-                        'abc',
-                        enabled: false,
-                        child: Text(
-                          'Vô hiệu hóa tài khoản',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 200,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/logo-bg.png",
-                        width: size.width * 0.25,
-                      ),
-                      Text("Tôi")
-                    ],
-                  ),
+                  // trailing: PopupMenuButton<String>(
+                  //   padding: EdgeInsets.zero,
+                  //   itemBuilder: (context) => <PopupMenuItem<String>>[
+                  //     PopupMenuItem<String>(
+                  //       value: 'abc',
+                  //       child: Text(
+                  //         'Chỉnh sửa thông tin',
+                  //       ),
+                  //     ),
+                  //     PopupMenuItem<String>(
+                  //       child: Text(
+                  //         'Đổi mật khẩu',
+                  //       ),
+                  //     ),
+                  //     PopupMenuItem<String>(
+                  //       value:
+                  //       'abc',
+                  //       enabled: false,
+                  //       child: Text(
+                  //         'Vô hiệu hóa tài khoản',
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ),
 
-                // SizedBox(height: size.height * 0.05),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return App(possition: 2);
+                                },
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.orangeAccent,
+                              onPrimary: Colors.white,
+                              onSurface: Colors.lightBlueAccent
+
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/logo-bg.png",
+                                width: size.width * 0.25,
+                              ),
+                              Text("Tôi")
+                            ],
+                          )
+                      ),
+                    ]
+                ), // SizedBox(height: size.height * 0.05),
                 SizedBox(height: size.height * 0.03),
                 SizedBox(
-                  height: 2.05 * height,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 2 * height,
-                        child: Card(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: size.height * 0.01),
-                              Column(
-                                children: [
-                                  Stack(
-                                      alignment: AlignmentDirectional.centerEnd,
-                                      children: <Widget>[
-                                        Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: <Widget>[
-                                              Text("  "),
-                                              Icon(Icons.widgets_rounded),
-                                              Text("  Ví voucher"),
-                                            ]
-                                        ),
-                                        Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: <Widget>[
-                                              Icon(Icons.arrow_forward_ios, size: 15.0),
-                                              Text("  "),
-                                            ]
-                                        ),
-                                      ]
-                                  ),
-                                  SizedBox(height: size.height * 0.03),
-                                  Stack(
-                                      alignment: AlignmentDirectional.centerEnd,
-                                      children: <Widget>[
-                                        Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: <Widget>[
-                                              Text("  "),
-                                              Icon(Icons.work_rounded),
-                                              Text("  Thanh toán"),
-                                            ]
-                                        ),
-                                        Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: <Widget>[
-                                              Icon(Icons.arrow_forward_ios, size: 15.0),
-                                              Text("  "),
-                                            ]
-                                        ),
-                                      ]
-                                  )
-                                ],
-                              )
+                    height: 2.05 * height,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 2 * height,
+                          child: Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: size.height * 0.01),
+                                Column(
+                                  children: [
+                                    Stack(
+                                        alignment: AlignmentDirectional.centerEnd,
+                                        children: <Widget>[
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text("  "),
+                                                Icon(Icons.widgets_rounded),
+                                                Text("  Ví voucher"),
+                                              ]
+                                          ),
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: <Widget>[
+                                                Icon(Icons.arrow_forward_ios, size: 15.0),
+                                                Text("  "),
+                                              ]
+                                          ),
+                                        ]
+                                    ),
+                                    SizedBox(height: size.height * 0.03),
+                                    Stack(
+                                        alignment: AlignmentDirectional.centerEnd,
+                                        children: <Widget>[
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text("  "),
+                                                Icon(Icons.work_rounded),
+                                                Text("  Thanh toán"),
+                                              ]
+                                          ),
+                                          Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: <Widget>[
+                                                Icon(Icons.arrow_forward_ios, size: 15.0),
+                                                Text("  "),
+                                              ]
+                                          ),
+                                        ]
+                                    )
+                                  ],
+                                )
 
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  )
+                      ],
+                    )
                 ),
 
                 SizedBox(
@@ -286,27 +309,27 @@ class Account extends StatelessWidget {
                       ],
                     )
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  width: size.width * 0.28,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(29),
-                    child: FlatButton(
-                      // padding: EdgeInsets.fromLTRB(24, 4, 24, 4),
-                      // border: Border.all(width: 2.0, color: const Color(0xFFFFFFFF)),
-                      color: Color(0xFFC6A7A7),
-                      onPressed: () {
-                      },
-                      child: Text(
-                        'Đăng xuất',
-                        style: TextStyle(
-                            color: Colors.orangeAccent[700],
-                            fontSize: 20
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.symmetric(vertical: 10),
+                //   width: size.width * 0.28,
+                //   child: ClipRRect(
+                //     borderRadius: BorderRadius.circular(29),
+                //     child: FlatButton(
+                //       // padding: EdgeInsets.fromLTRB(24, 4, 24, 4),
+                //       // border: Border.all(width: 2.0, color: const Color(0xFFFFFFFF)),
+                //       color: Color(0xFFC6A7A7),
+                //       onPressed: () {
+                //       },
+                //       child: Text(
+                //         'Đăng xuất',
+                //         style: TextStyle(
+                //             color: Colors.orangeAccent[700],
+                //             fontSize: 20
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
 
             ),
@@ -316,5 +339,4 @@ class Account extends StatelessWidget {
     );
   }
 }
-
 
