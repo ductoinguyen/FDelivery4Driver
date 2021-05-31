@@ -34,7 +34,7 @@ db = MongoClient("mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.n
 @required_data
 @cross_origin()
 def login(phone_number, password):
-    if 'username' in session:
+    if 'phone_number' in session:
         session.clear()
     global db
     result = DriverService().login(db, phone_number, password)

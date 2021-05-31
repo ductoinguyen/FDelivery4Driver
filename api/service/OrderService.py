@@ -7,15 +7,14 @@ class OrderService:
         self.order = OrderRepository()
         
     def registryTransport(self, db, driverId, day):
-        if self.schedule.hasAvailablePath(db, day):
-            paths = self.schedule.getPathsInDay(db, day)["paths"]
-            for i in range(len(paths)):
-                item = paths[i]
-                if not item["has_driver"]:
-                    path = item["path"]
-                    self.schedule.registryTransport(db, day, i, driverId)
-                    self.order.registryTransport(db, day, path, driverId)
-                    return {"message": "Thành công"}
+        paths = self.schedule.getPathsInDay(db, day)["paths"]
+        for i in range(len(paths)):
+            item = paths[i]
+            if not item["has_driver"]:
+                path = item["path"]
+                self.schedule.registryTransport(db, day, i, driverId)
+                self.order.registryTransport(db, day, path, driverId)
+                return {"message": "Thành công"}
         return {"message": "Hết đơn hàng"}
     
     def getAllOrdersInDay(self, db, driverId, day):
