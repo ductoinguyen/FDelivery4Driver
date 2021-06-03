@@ -162,6 +162,7 @@ class _AccountPasswordState extends State<AccountPassword> {
                               final res = await Authenticate().changePassword(driver.id, oldPassword, newPassword, reNewPassword);
                               final data = jsonDecode(res);
                               if (data['message'] == 'success') {
+                                driver.password = newPassword;
                                 setState(() {
                                   isLoading = false;
                                 });

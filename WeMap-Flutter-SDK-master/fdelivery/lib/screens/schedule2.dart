@@ -408,12 +408,11 @@ class _CardsDemoState extends State<Schedule> with RestorationMixin {
                                       latLngIndex = i;
                                       destination = latLngArr[latLngIndex];
                                       print(latLngIndex);
-                                      print('From ' + latLngArr[latLngIndex].toString() + ' to ' + destination.toString());
+                                      print('From ' + currentLocation.toString() + ' to ' + destination.toString());
                                       tabIndex = 2;
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => App()
-                                        ),
+                                        MaterialPageRoute(builder: (context) => App()),
                                       );
                                     },
                                     child:
